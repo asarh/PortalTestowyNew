@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalR.API", "PortalR.API.csproj", "{649D329A-C401-4309-A9D6-1BB6021C091F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{649D329A-C401-4309-A9D6-1BB6021C091F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649D329A-C401-4309-A9D6-1BB6021C091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649D329A-C401-4309-A9D6-1BB6021C091F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649D329A-C401-4309-A9D6-1BB6021C091F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57F87B5E-2DD7-4793-95BE-6590BC8D648A}
+	EndGlobalSection
+EndGlobal
