@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using  PortalR.API.Data;
 
 namespace PortalR.API
 {
@@ -15,7 +18,9 @@ namespace PortalR.API
     {
         public static void Main(string[] args)
         {
+
             CreateWebHostBuilder(args).Build().Run();
+
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
