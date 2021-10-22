@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PortalR.API.Models
 {
-    public class Value
+    public class Values
     {
         public int Id { get; set; }
         public string Name { get; set; } 
