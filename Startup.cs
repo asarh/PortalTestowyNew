@@ -34,6 +34,7 @@ namespace PortalR.API
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddCors();
             
         }
 
@@ -51,6 +52,7 @@ namespace PortalR.API
             }
             //app.UseHsts();
             //app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseMvc();
 
         }
