@@ -49,7 +49,7 @@ namespace PortalR.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> AddValue([FromBody] Values value)
+        public async Task<IActionResult> AddValue([FromBody] Value value)
         {
             _context.Values.Add(value);
            await _context.SaveChangesAsync();
@@ -58,7 +58,7 @@ namespace PortalR.API.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditValue(int id, [FromBody] Values value)
+        public async Task<IActionResult> EditValue(int id, [FromBody] Value value)
         {
             var data = await _context.Values.FindAsync(id);
             data.Name = value.Name;
