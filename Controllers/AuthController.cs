@@ -37,3 +37,5 @@ namespace PortalR.API.Controllers
         }
     }
 }
+
+//TODO Utworzenie DTO !!!
