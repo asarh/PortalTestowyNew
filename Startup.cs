@@ -35,6 +35,7 @@ namespace PortalR.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>(); //rejestracja repozytorium w kontenerze wstrzykiwania zależności
             
         }
 
