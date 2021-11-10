@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
+using System.Data.Entity;
 
 namespace PortalR.API.Data
 {
@@ -18,12 +19,21 @@ namespace PortalR.API.Data
             _context = context;
         }
         
-        public Task<User> Login(string username, string password)
+        public  async Task<User> Login(string username, string password)
         {
-            
-            
-            throw new NotImplementedException();
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == username); //pobranie użytkownika z bazy
+            if (user == null)
+                return null;
+
+            if(!VerifyPassworddHash(password, user.PasswordHash, user.PasswordSalt))
+            return null;
+
+            return user;
+
+
         }
+
+
 
         public async Task<User> Register(User user, string password)
         {
@@ -37,9 +47,12 @@ namespace PortalR.API.Data
 
             return user;
         }
-        public Task<bool> UserExist(string username)
+        public async Task<bool> UserExist(string username)
         {
-            throw new NotImplementedException();
+            if (await _context.Users.AnyAsync(x => x.UserName == username))
+                return true;
+
+            return false;
         }
 
         #endregion
@@ -52,9 +65,23 @@ namespace PortalR.API.Data
             {
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-
             }
                 
+        }
+
+
+        private bool VerifyPassworddHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                for(int i = 0; i <computedHash.Length; i++ )
+                {
+                    if (computedHash[i] != passwordHash[i]) // sprawdzam czy mój password(czyli za hashowane hasło) zgadza sie z paswordHash
+                        return false;
+                }
+                return true; 
+            }
         }
 
         #endregion
