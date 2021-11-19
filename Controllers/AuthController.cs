@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortalR.API.Data;
+using PortalR.API.Dtos;
 using PortalR.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace PortalR.API.Controllers
 {
@@ -21,21 +23,25 @@ namespace PortalR.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register(string username, string passwprd)
+        public async Task<ActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
-            username = username.ToLower();
-            if (await _authRepository.UserExist(username))
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
+
+            if (await _authRepository.UserExist(userForRegisterDto.Username))
                 return BadRequest("Użytkownik o takiej nazwie już istnieje !");
 
             var userToCreate = new User
             {
-                UserName = username
+                UserName = userForRegisterDto.Username
             };
 
-            var createdUser = await _authRepository.Register(userToCreate, passwprd);
+            var createdUser = await _authRepository.Register(userToCreate, userForRegisterDto.Password);
             return StatusCode(201);
         }
     }
 }
 
-//TODO Utworzenie DTO !!!
+//TODO Walidacja poczytać o ApoController
