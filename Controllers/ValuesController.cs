@@ -7,16 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using PortalR.API.Data;
 using PortalR.API.Models;
 using Microsoft.EntityFrameworkCore;
-
-
-
-
-
-
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace PortalR.API.Controllers
 {
+    [Authorize] // w tym momencie do wszystkich akcji ValueContorller mają dostęp tylko za autoryzowani uzytkownicy(zalogowani)
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -40,6 +36,7 @@ namespace PortalR.API.Controllers
         }
 
         // GET api/values/5
+        [AllowAnonymous] // do tych wartosci może się dostać każdy nawet nie zalogowany użytkownik
         [HttpGet("{id}")]
         public async Task<IActionResult>GetValue(int id)
         {

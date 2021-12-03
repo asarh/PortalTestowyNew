@@ -80,4 +80,4 @@ namespace PortalR.API.Controllers
     }
 }
 
-//TODO Kontroler dodanie metody logowania
+//TODO Użycie uwierzytelniania
