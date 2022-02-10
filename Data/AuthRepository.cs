@@ -23,7 +23,7 @@ namespace PortalR.API.Data
         
         public  async Task<User> Login(string username, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == username); //pobranie użytkownika z bazy
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.username == username); //pobranie użytkownika z bazy
             if (user == null)
                 return null;
 
@@ -51,7 +51,7 @@ namespace PortalR.API.Data
         }
         public async Task<bool> UserExist(string username)
         {
-            if (await _context.Users.AnyAsync(x => x.UserName == username))
+            if (await _context.Users.AnyAsync(x => x.username == username))
                 return true;
 
             return false;

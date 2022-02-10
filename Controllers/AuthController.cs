@@ -41,7 +41,7 @@ namespace PortalR.API.Controllers
 
             var userToCreate = new User
             {
-                UserName = userForRegisterDto.Username
+                username = userForRegisterDto.Username
             };
 
             var createdUser = await _authRepository.Register(userToCreate, userForRegisterDto.Password);
@@ -60,7 +60,7 @@ namespace PortalR.API.Controllers
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userfromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userfromRepo.UserName)
+                new Claim(ClaimTypes.Name, userfromRepo.username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));

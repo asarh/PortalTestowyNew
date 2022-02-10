@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortalR.API", "PortalR.API.csproj", "{649D329A-C401-4309-A9D6-1BB6021C091F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalR.SPA", "..\PortalR.SPA\PortalR.SPA.csproj", "{C3F0CF81-70FF-42F5-BE53-415DFCCD84AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortalR.SPA_old", "..\PortalR.SPA\PortalR.SPA_old.csproj", "{C3F0CF81-70FF-42F5-BE53-415DFCCD84AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalR.SPA", "..\PortalR.SPA\PortalR.SPA.csproj", "{E0F67FC9-253B-4D66-BEFA-19A6AB230867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C3F0CF81-70FF-42F5-BE53-415DFCCD84AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F0CF81-70FF-42F5-BE53-415DFCCD84AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F0CF81-70FF-42F5-BE53-415DFCCD84AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F67FC9-253B-4D66-BEFA-19A6AB230867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F67FC9-253B-4D66-BEFA-19A6AB230867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F67FC9-253B-4D66-BEFA-19A6AB230867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F67FC9-253B-4D66-BEFA-19A6AB230867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
